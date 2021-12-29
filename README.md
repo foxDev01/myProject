@@ -1,2 +1,3 @@
-# myProject
-myProject
+laravel 
+
+docker-compose up -d
