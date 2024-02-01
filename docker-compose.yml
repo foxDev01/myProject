@@ -1,0 +1,26 @@
+web:
+    image: hitalos/laravel:latest
+    ports:
+        - 80:80
+    volumes:
+        - ./:/var/www
+    links:
+        - db
+    environment:
+        DB_HOST: db
+        DB_DATABASE: dbname
+        DB_USERNAME: username
+        DB_PASSWORD: p455w0rd
+        DB_CONNECTION: [pgsql or mysql]
+db:
+    image: [postgres or mysql]
+    environment:
+        # with mysql
+        MYSQL_DATABASE: dbname
+        MYSQL_USER: username
+        MYSQL_PASSWORD: p455w0rd
+
+        # with postgres
+        POSTGRES_DB: dbname
+        POSTGRES_USER: username
+        POSTGRES_PASSWORD: p455w0rd
