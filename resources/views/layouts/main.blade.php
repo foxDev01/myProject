@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,10 +42,8 @@
                             @auth()
                             <a class="nav-link" href="{{route('personal.main.index')}}">Страница пользователя: {{auth()->user()->name}} </a>
                             
-                            @if(auth()->user()->role === '0')
+                            @if((int) auth()->user()->role === \App\Models\User::ROLE_ADMIN)
                                 <a class="nav-link" href="{{route('admin.main.index')}}"><i class="fas fa-user-shield"></i> </a>
-                        @else
-                            
                         @endif
 
                             <ul class="navbar-nav">
@@ -61,7 +59,7 @@
                            
                             @guest()
                             
-                            <a class="nav-link" href="{{route('personal.main.index')}}">Войти</a>
+                            <a class="nav-link" href="{{route('login')}}">Войти</a>
                             @endguest
 
                         </li>
@@ -74,7 +72,6 @@
    @yield('content')
 
    
-    {{asset('')}}
     <script src="{{asset('assets/vendors/popper.js/popper.min.js')}}"></script>
     <script src="{{asset('assets/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/vendors/aos/aos.js')}}"></script>

@@ -9,7 +9,7 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        $projs = Proj::all();
+        $projs = Proj::paginate(15);
         return view('admin.proj.index', compact('projs'));
     }
 }

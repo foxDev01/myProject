@@ -8,7 +8,7 @@
                     @foreach($projs as $proj)
                     <div class="col-md-4 fetured-post blog-post" data-aos="fade-up">
                         <div class="blog-post-thumbnail-wrapper">
-                            <img src="{{'storage/'. $proj->preview_image}}" alt="blog post">
+                            <img src="{{asset('storage/'. $proj->preview_image)}}" alt="blog post">
                         </div>
                             <a href="{{route ('proj.show', $proj->id)}}" class="blog-post-permalink">
                             <h6 class="blog-post-title">{{$proj->title}}</h6>
@@ -30,7 +30,7 @@
                             @foreach( $randomProjs as $proj )
                             <div class="col-md-6 blog-post" data-aos="fade-up">
                                 <div class="blog-post-thumbnail-wrapper">
-                                    <img src="{{'storage/'. $proj->preview_image}}" alt="blog post">
+                                    <img src="{{asset('storage/'. $proj->preview_image)}}" alt="blog post">
                                 </div>
                                 <p class="blog-post-category">{{$proj->category->title}}</p>
                                 <a href="{{route ('proj.show', $proj->id)}}" class="blog-post-permalink">
@@ -50,7 +50,7 @@
                         @foreach($likedProj as $proj)
                             <li class="post">
                                 <a href="{{route ('proj.show', $proj->id)}}" class="post-permalink media">
-                                    <img src="{{'storage/'. $proj->preview_image}}" alt="blog post">
+                                    <img src="{{asset('storage/'. $proj->preview_image)}}" alt="blog post">
                                     <div class="media-body">
                                         <h6 class="post-title">{{$proj->title}}</h6>
                                     </div>

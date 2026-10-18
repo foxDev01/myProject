@@ -52,14 +52,11 @@
                                 </li>
                             @endif
                         @else
-                           
-
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                        <input class="btn btn-outline-primary" type="submit" value="Выйти" >
-                                    </form>
-                                </div>
+                            <li class="nav-item">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <input class="btn btn-outline-primary" type="submit" value="Выйти">
+                                </form>
                             </li>
                         @endguest
                     </ul>

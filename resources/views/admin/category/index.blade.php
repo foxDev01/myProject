@@ -68,6 +68,7 @@
                       @endforeach
                     </tbody>
                   </table>
+                  {{ $categories->links() }}
                 </div>
                 <!-- /.card-body -->
               </div>

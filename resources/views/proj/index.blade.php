@@ -100,7 +100,7 @@
                         @foreach($likedProjs as $proj)
                             <li class="post">
                                 <a href="{{route ('proj.show', $proj->id)}}" class="post-permalink media">
-                                    <img src="{{'storage/'. $proj->preview_image}}" alt="blog post">
+                                    <img src="{{asset('storage/'. $proj->preview_image)}}" alt="blog post">
                                     <div class="media-body">
                                         <h6 class="post-title">{{$proj->title}}</h6>
                                     </div>
@@ -108,6 +108,7 @@
                             </li>
                             @endforeach
                            
+                        </ul>
                     </div>
                     <div class="widget">
                         <h5 class="widget-title">Категории</h5>
@@ -127,9 +128,8 @@
                              {{ $categories->links() }}
                              </div>
                             </li>
+                        </ul>
                         </div>
-                        
-                     </ul>
                         
 
                     </div>
