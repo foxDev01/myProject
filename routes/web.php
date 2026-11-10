@@ -57,11 +57,9 @@ Route::prefix('proj')->group(function () {
     Route::get('/', ProjIndexController::class)->name('proj.index');
     Route::get('/{proj}', ProjShowController::class)->name('proj.show');
 
-    Route::prefix('{proj}/comments')->group(function () {
-        Route::post('/', ProjCommentStoreController::class)->name('proj.comment.store');
-    });
-    Route::prefix('{proj}/likes')->group(function () {
-        Route::post('/', ProjLikeStoreController::class)->name('proj.like.store');
+    Route::middleware('auth')->group(function () {
+        Route::post('{proj}/comments', ProjCommentStoreController::class)->name('proj.comment.store');
+        Route::post('{proj}/likes', ProjLikeStoreController::class)->name('proj.like.store');
     });
 });
 

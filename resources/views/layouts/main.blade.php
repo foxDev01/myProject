@@ -42,7 +42,7 @@
                             @auth()
                             <a class="nav-link" href="{{route('personal.main.index')}}">Страница пользователя: {{auth()->user()->name}} </a>
                             
-                            @if((int) auth()->user()->role === \App\Models\User::ROLE_ADMIN)
+                            @if(auth()->user()->role === \App\Models\User::ROLE_ADMIN)
                                 <a class="nav-link" href="{{route('admin.main.index')}}"><i class="fas fa-user-shield"></i> </a>
                         @endif
 

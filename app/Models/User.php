@@ -2,15 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use phpDocumentor\Reflection\Types\This;
-use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 
 class User extends Authenticatable
 {
@@ -53,11 +49,8 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'role' => 'integer',
     ];
-    public function sendEmailVerificationNotification()
-    {
-        $this->notifi(new SendEmailVerificationNotification());
-    }
     public function likedProjects() 
     {
         return $this->belongsToMany(Proj::class, 'project_user_likes', 'user_id', 'project_id');

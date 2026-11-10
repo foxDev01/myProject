@@ -8,9 +8,12 @@ use App\Models\Comment;
 
 class UpdateController extends Controller
 {
-    public function __invoke(CommentUpdateRequest $request, Comment $comment )
-    {   $data = $request->validate();
-        $comment->updata($data);
+    public function __invoke(CommentUpdateRequest $request, Comment $comment)
+    {
+        abort_unless($comment->user_id === auth()->id(), 403);
+
+        $comment->update($request->validated());
+
         return redirect()->route('personal.comment.index');
     }
 }
